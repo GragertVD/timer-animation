@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GreyFonPopup, NumberContainer, TimerContainer } from './style';
 
 interface IPropsTimer {
@@ -7,8 +7,12 @@ interface IPropsTimer {
 
 export const Timer: React.FC<IPropsTimer> = ({ time }) => {
 
-  const [currentNum, setCurrentNum] = useState(time > 100 ? 100 : time);
+  const [currentNum, setCurrentNum] = useState(time);
 
+  useEffect(() => {
+    setCurrentNum(time);
+  }, [time])
+  
   return (
     <GreyFonPopup>
       <TimerContainer

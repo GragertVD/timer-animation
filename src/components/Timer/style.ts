@@ -9,7 +9,7 @@ const animateborder = (deg: number, step: number, time: number) => {
         #14181f ${`${deg}deg`} 0deg
         );
     }`
-    const delta = 50;
+    const delta = Math.round(400/time);
     for (let i = 1; i < delta + 1; i++) {
       anim += `
               ${100 * i / delta}%{
