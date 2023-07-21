@@ -34,6 +34,5 @@ export const Timer: React.FC<IPropsTimer> = ({ time }) => {
         </NumberContainer>
       </TimerContainer>
     </GreyFonPopup>
-
   )
 }

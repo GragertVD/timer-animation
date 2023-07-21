@@ -1,35 +1,79 @@
 import styled, { css, keyframes } from "styled-components";
 
-const animateborder = (deg: number, step: number, time: number) => {
-  const animF = () => {
-    let anim = `
-    0%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg}deg`}, 
-        #14181f ${`${deg}deg`} 0deg
-        );
-    }`
-    const delta = Math.round(400/time);
-    for (let i = 1; i < delta + 1; i++) {
-      anim += `
+const animateBorder = (deg: number, step: number) => {
+  let myKeyframes = ``
+  const delta = Math.round(400 / (360 / step));
+  for (let i = 0; i < delta + 1; i++) {
+    myKeyframes += `
               ${100 * i / delta}%{
                 background: conic-gradient(
                   #37f 0deg ${`${deg - step * i / delta}deg`}, 
                   #14181f ${`${deg - step * i / delta}deg`} 0deg
                   );
               }`
-    }
-
-    return anim;
   }
 
-  const anim2 = keyframes`${animF()}`;
+  const anim2 = keyframes`${myKeyframes}`;
 
   const anim = keyframes`
     0%{
       background: conic-gradient(
         #37f 0deg ${`${deg}deg`}, 
         #14181f ${`${deg}deg`} 0deg
+        );
+    }
+    10%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step * 0.1}deg`}, 
+        #14181f ${`${deg - step * 0.1}deg`} 0deg
+        );
+    }
+    20%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step * 0.2}deg`}, 
+        #14181f ${`${deg - step * 0.2}deg`} 0deg
+        );
+    }
+    30%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step * 0.3}deg`}, 
+        #14181f ${`${deg - step * 0.3}deg`} 0deg
+        );
+    }
+    40%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
+        );
+    }
+    50%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
+        );
+    }
+    60%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
+        );
+    }
+    70%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
+        );
+    }
+    80%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
+        );
+    }
+    90%{
+      background: conic-gradient(
+        #37f 0deg ${`${deg - step}deg`}, 
+        #14181f ${`${deg - step}deg`} 0deg
         );
     }
     100%{
@@ -42,7 +86,7 @@ const animateborder = (deg: number, step: number, time: number) => {
   return css`${anim2} 1s linear forwards 1`
 };
 
-const animateborder2 = keyframes`
+const animateBorderRotate = keyframes`
   100%{
     transform: rotate(1turn);
   }
@@ -70,7 +114,7 @@ export const GreyFonPopup = styled.div`
   justify-content: center;
 `;
 
-export const TimerContainer = styled.div<{ time: number, currentNum: number }>`
+export const TimerContainer = styled.div<{ time: number; currentNum: number }>`
   position: relative;
   z-index: 0;
   width: 200px;
@@ -89,8 +133,8 @@ export const TimerContainer = styled.div<{ time: number, currentNum: number }>`
     top: -50%;
     width: 200%;
     height: 200%;
-    animation: ${props => animateborder(360 * props.currentNum / props.time, 360 / props.time, props.time)}, 
-              ${animateborder2} 4s linear infinite;
+    animation: ${props => animateBorder(360 * props.currentNum / props.time, 360 / props.time)}, 
+              ${animateBorderRotate} 4s linear infinite;
   }
 
   &::after{
