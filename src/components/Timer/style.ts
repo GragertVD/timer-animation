@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 
 const animateBorder = (deg: number, step: number) => {
-  let myKeyframes = ``
+  let myKeyframes = ``;
   const delta = Math.round(400 / (360 / step));
   for (let i = 0; i < delta + 1; i++) {
     myKeyframes += `
@@ -15,74 +15,6 @@ const animateBorder = (deg: number, step: number) => {
 
   const anim2 = keyframes`${myKeyframes}`;
 
-  const anim = keyframes`
-    0%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg}deg`}, 
-        #14181f ${`${deg}deg`} 0deg
-        );
-    }
-    10%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step * 0.1}deg`}, 
-        #14181f ${`${deg - step * 0.1}deg`} 0deg
-        );
-    }
-    20%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step * 0.2}deg`}, 
-        #14181f ${`${deg - step * 0.2}deg`} 0deg
-        );
-    }
-    30%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step * 0.3}deg`}, 
-        #14181f ${`${deg - step * 0.3}deg`} 0deg
-        );
-    }
-    40%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    50%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    60%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    70%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    80%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    90%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-    100%{
-      background: conic-gradient(
-        #37f 0deg ${`${deg - step}deg`}, 
-        #14181f ${`${deg - step}deg`} 0deg
-        );
-    }
-  `
   return css`${anim2} 1s linear forwards 1`
 };
 
@@ -108,7 +40,7 @@ export const GreyFonPopup = styled.div`
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(35,35,35,0.35);
+  /* background-color: rgba(35,35,35,0.35); */
   display: flex;
   align-items: center;
   justify-content: center;

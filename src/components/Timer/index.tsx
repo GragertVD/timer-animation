@@ -12,11 +12,11 @@ export const Timer: React.FC<IPropsTimer> = ({ time }) => {
   useEffect(() => {
     setCurrentNum(time);
   }, [time])
-  
+
   return (
     <GreyFonPopup>
       <TimerContainer
-        time={time > 100 ? 100 : time}
+        time={time}
         currentNum={currentNum}
       >
         <NumberContainer>

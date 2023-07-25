@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 import { Timer } from './components/Timer';
-import { TimerFromArticle } from './components/TimerFromArticle';
 
 function App() {
 
@@ -10,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <Timer time={time} />
-      {/* <TimerFromArticle time={time} /> */}
       <button
         style={{ position: 'relative', zIndex: '1000' }}
         onClick={() => {
