@@ -40,7 +40,7 @@ export const GreyFonPopup = styled.div`
   z-index: 10;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(35,35,35,0.35); */
+  background-color: rgba(35,35,35,0.35);
   display: flex;
   align-items: center;
   justify-content: center;
